@@ -1,3 +1,5 @@
+Projeto de pesquisa de iniciação científica que tem como objetivo realizar uma avaliação comparativa entre métodos de detecção de novidade em fluxo de dados usando a plataforma MOA.
+
 # MOA (Massive Online Analysis)
 [![Build Status](https://travis-ci.org/Waikato/moa.svg?branch=master)](https://travis-ci.org/Waikato/moa)
 [![Maven Central](https://img.shields.io/maven-central/v/nz.ac.waikato.cms.moa/moa-pom.svg)](https://mvnrepository.com/artifact/nz.ac.waikato.cms)
@@ -12,21 +14,7 @@ MOA is the most popular open source framework for data stream mining, with a ver
 
 http://moa.cms.waikato.ac.nz/
 
-## Using MOA
-
-* [Getting Started](http://moa.cms.waikato.ac.nz/getting-started/)
-* [Documentation](http://moa.cms.waikato.ac.nz/documentation/)
-* [About MOA](http://moa.cms.waikato.ac.nz/details/)
-
-MOA performs BIG DATA stream mining in real time, and large scale machine learning. MOA can be extended with new mining algorithms, and new stream generators or evaluation measures. The goal is to provide a benchmark suite for the stream mining community. 
-
-## Mailing lists
-* MOA users: http://groups.google.com/group/moa-users
-* MOA developers: http://groups.google.com/group/moa-development
-
 ## Citing MOA
-If you want to refer to MOA in a publication, please cite the following JMLR paper: 
-
 > Albert Bifet, Geoff Holmes, Richard Kirkby, Bernhard Pfahringer (2010);
 > MOA: Massive Online Analysis; Journal of Machine Learning Research 11: 1601-1604 
 
