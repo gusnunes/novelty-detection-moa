@@ -1,5 +1,3 @@
-Projeto de pesquisa de iniciação científica que tem como objetivo realizar uma avaliação comparativa entre métodos de detecção de novidade em fluxo de dados usando a plataforma MOA.
-
 # MOA (Massive Online Analysis)
 [![Build Status](https://travis-ci.org/Waikato/moa.svg?branch=master)](https://travis-ci.org/Waikato/moa)
 [![Maven Central](https://img.shields.io/maven-central/v/nz.ac.waikato.cms.moa/moa-pom.svg)](https://mvnrepository.com/artifact/nz.ac.waikato.cms)
