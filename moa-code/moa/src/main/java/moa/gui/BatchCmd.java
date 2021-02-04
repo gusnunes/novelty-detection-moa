@@ -130,6 +130,23 @@ public class BatchCmd implements ClusterEventListener{
 			boolean[] measureCollection, int amountInstances, String outputFile){
 		// create the measure collection 
 		MeasureCollection[] measures = getMeasures(getMeasureSelection(measureCollection));
+
+		// setar quais medidas eu não quero
+		measures[0].setEnabled(0,false); // F1-P
+		measures[0].setEnabled(1,false); // F1-R
+		
+		measures[1].setEnabled(1,false); // CMM Basic
+		measures[1].setEnabled(2,false); // CMM Missed
+		measures[1].setEnabled(3,false); // CMM Misplaced
+		measures[1].setEnabled(4,false); // CMM Noise
+		measures[1].setEnabled(5,false); // CA Seperability
+		measures[1].setEnabled(6,false); // CA Noise
+		measures[1].setEnabled(7,false); // CA Model
+		
+		measures[3].setEnabled(1,false); // BSS-GT
+		measures[3].setEnabled(2,false); // BSS-Ratio
+		
+		measures[5].setEnabled(0,false); // van Dongen
 		
 		// run the batch job
 		BatchCmd batch = new BatchCmd(clusterer, stream, measures, amountInstances);
