@@ -19,7 +19,6 @@ public class CluStream {
 		// setar o valor k de grupos
 		WithKmeans clusterer = new WithKmeans();
 		clusterer.kOption.setValue(k);
-
 		clusterer.resetLearningImpl();
 
 		// escolher quais grupos de medidas serão usadas
@@ -34,7 +33,7 @@ public class CluStream {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		// Arquivo de entrada
-        String in_file = "datasets\\elecNormNew.arff";
+        String in_file = "datasets\\covtypeNorm.arff";
 		
 		// Arquivo de saida
 		String out_file = "teste_resultado.csv";
