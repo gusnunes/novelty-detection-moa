@@ -113,6 +113,35 @@ public class F1 extends MeasureCollection{
         F1_R/=numClasses;
 
         addValue("F1-R",F1_R);
-    }
 
+        
+
+        //Inverse Purity
+        double inverse_purity = 0.0;
+        int clusters_real = 0;
+        for (int j = 0; j < numClasses; j++){
+            double max_weight = 0;
+            int max_weight_index = -1;
+
+            //dada a classe, procura qual grupo tem a maior quantidade de dados pertencentes a ela
+            for (int i = 0; i < clustering.size(); i++) {
+                if(mm.getClusterClassWeight(i, j) > max_weight){
+                    max_weight = mm.getClusterClassWeight(i, j);
+                    max_weight_index = -1;
+                }    
+            }
+
+            //Pelo menos um grupo com dado pertencente à alguma classe
+            if(max_weight_index!=-1){
+                clusters_real++;
+                double max_precision = max_weight;
+                inverse_purity += max_precision;
+            }
+        }
+
+        if(clusters_real > 0)
+        inverse_purity/=clusters_real;
+
+        addValue("Inverse Purity",inverse_purity);
+    }
 }
