@@ -114,7 +114,7 @@ public class F1 extends MeasureCollection{
 
         addValue("F1-R",F1_R);
 
-        
+
 
         //Inverse Purity
         double inverse_purity = 0.0;
@@ -127,7 +127,7 @@ public class F1 extends MeasureCollection{
             for (int i = 0; i < clustering.size(); i++) {
                 if(mm.getClusterClassWeight(i, j) > max_weight){
                     max_weight = mm.getClusterClassWeight(i, j);
-                    max_weight_index = -1;
+                    max_weight_index = i;
                 }    
             }
 
