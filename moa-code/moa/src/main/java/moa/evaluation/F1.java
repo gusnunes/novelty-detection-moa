@@ -27,7 +27,7 @@ public class F1 extends MeasureCollection{
 
     @Override
     protected String[] getNames() {
-        String[] names = {"F1-P","F1-R","Purity"};
+        String[] names = {"F1-P","F1-R","Purity","Inverse Purity"};
         return names;
     }
 
