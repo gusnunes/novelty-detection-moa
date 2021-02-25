@@ -33,10 +33,10 @@ public class CluStream {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		// Arquivo de entrada
-        String in_file = "datasets\\airlines.arff";
+        String in_file = "moa\\datasets\\airlines.arff";
 		
 		// Arquivo de saida
-		String out_file = "resultados\\CluStream_airlines.csv";
+		String out_file = "moa\\resultados\\CluStream_airlines.csv";
 	
         int k = 5;		
         CluStream exp = new CluStream();
