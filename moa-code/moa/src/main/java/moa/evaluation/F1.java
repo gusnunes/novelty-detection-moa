@@ -46,13 +46,13 @@ public class F1 extends MeasureCollection{
         }
 
         MembershipMatrix mm = new MembershipMatrix(clustering, points);
-        //System.out.println(mm.toString());
+        System.out.println(mm.toString());
 
         int numClasses = mm.getNumClasses();
         if(mm.hasNoiseClass())
             numClasses--;
 
-
+        System.out.println("Numero de clusters:" +  clustering.size());
 
         //F1 as defined in P3C, try using F1 optimization
         double F1_P = 0.0;
@@ -117,7 +117,7 @@ public class F1 extends MeasureCollection{
 
 
         //Inverse Purity
-        double inverse_purity = 0.0;
+        double inverse_purity = 0;
         int clusters_real = 0;
         for (int j = 0; j < numClasses; j++){
             double max_weight = 0;
@@ -127,15 +127,15 @@ public class F1 extends MeasureCollection{
             for (int i = 0; i < clustering.size(); i++) {
                 if(mm.getClusterClassWeight(i, j) > max_weight){
                     max_weight = mm.getClusterClassWeight(i, j);
-                    max_weight_index = i;
+                    max_weight_index = i;   
                 }    
             }
 
             //Pelo menos um grupo com dado pertencente à alguma classe
             if(max_weight_index!=-1){
+                double precision = mm.getClusterClassWeight(max_weight_index,j)/(double)mm.getClassSum(j);
+                inverse_purity += precision;
                 clusters_real++;
-                double max_precision = max_weight;
-                inverse_purity += max_precision;
             }
         }
 
