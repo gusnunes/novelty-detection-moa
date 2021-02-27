@@ -32,15 +32,18 @@ public class CluStream {
 	}
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
-		// Arquivo de entrada
-        String in_file = "moa\\datasets\\airlines.arff";
+		// Nome do arquivo
+        String file = "teste2";
 		
-		// Arquivo de saida
-		String out_file = "moa\\resultados\\CluStream_airlines.csv";
+		// Arquivo de entrada (caminho)
+		String input = "datasets\\" + file + ".arff";
+		
+		// Arquivo de saida (caminho)
+		String output = "resultados\\CluStream_" + file;
 	
         int k = 5;		
         CluStream exp = new CluStream();
-        exp.run(-1, in_file, out_file,k);
+        exp.run(-1, input, output, k);
      	
         /*
 		//Variar o valor de k do CluStream

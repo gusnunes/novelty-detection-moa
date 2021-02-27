@@ -15,19 +15,28 @@ public class DenStream {
 		WithDBSCAN clusterer = new WithDBSCAN();
 		clusterer.resetLearningImpl();
 		
-		boolean[] measureCollection = {false,true,false,true,true,true,true,true};
+		boolean[] measureCollection = { false, true, false, true, true, true, true, true };
 		
 		BatchCmd.runBatch(file, clusterer, measureCollection, amountInstances, out_file);
 	}
 	
 	public static void main(String[] args) throws IOException {
-		// Arquivo de entrada
-        String in_file = "datasets\\elecNormNew.arff";
+		// fazer amanha: olhar o member ship da matriz 
+		// e fazer os testes pra ver se esta calculando certo a pureza inversa
+		// pelos resultados está saindo errado
 		
-		// Arquivo de saida
-		String out_file = "teste2_resultado.csv";
+
+
+		// Nome do arquivo
+        String file = "teste2";
+		
+		// Arquivo de entrada (caminho)
+		String input = "datasets\\" + file + ".arff";
+		
+		// Arquivo de saida (caminho)
+		String output = "resultados\\DenStream_" + file;
 	
         DenStream exp = new DenStream();
-        exp.run(-1, in_file, out_file);	
+        exp.run(-1, input, output);	
 	}
 }
