@@ -51,13 +51,13 @@ public class MembershipMatrix {
         total_entries = 0;
         total_class_entries = points.size();
         for (int p = 0; p < points.size(); p++) {
-            int worklabel = classmap.get((int)points.get(p).classValue());
+            int worklabel = classmap.get((int)points.get(p).classValue()); // controla dados da mesma classe
             //real class distribution
             class_distribution[worklabel]++;
             boolean covered = false;
             for (int c = 0; c < numCluster-1; c++) {
                 double prob = foundClustering.get(c).getInclusionProbability(points.get(p));
-                if(prob >= 1){
+                if(prob >= 1){ // um mesmo ponto pode entrar em grupos diferentes
                     cluster_class_weights[c][worklabel]++;
                     class_sums[worklabel]++;
                     cluster_sums[c]++;
@@ -65,7 +65,7 @@ public class MembershipMatrix {
                     covered = true;
                 }
             }
-            if(!covered){
+            if(!covered){ // o ponto nao entrou em nenhum grupo
                 cluster_class_weights[numCluster-1][worklabel]++;
                 class_sums[worklabel]++;
                 cluster_sums[numCluster-1]++;
@@ -127,7 +127,7 @@ public class MembershipMatrix {
             }
             sb.append("| "+cluster_sums[i]+"\n");
         }
-        //sb.append("-----------\n");
+        sb.append("-----------\n");
         for (int i = 0; i < class_sums.length; i++) {
             sb.append(class_sums[i]+"\t ");
         }
