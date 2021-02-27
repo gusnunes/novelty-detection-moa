@@ -28,13 +28,13 @@ public class DenStream {
 
 
 		// Nome do arquivo
-        String file = "teste2";
+        String file = "dados_artificiais";
 		
 		// Arquivo de entrada (caminho)
 		String input = "datasets\\" + file + ".arff";
 		
 		// Arquivo de saida (caminho)
-		String output = "resultados\\DenStream_" + file;
+		String output = "results\\DenStream_" + file;
 	
         DenStream exp = new DenStream();
         exp.run(-1, input, output);	
