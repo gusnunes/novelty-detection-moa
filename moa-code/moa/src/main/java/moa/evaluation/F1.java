@@ -46,13 +46,14 @@ public class F1 extends MeasureCollection{
         }
 
         MembershipMatrix mm = new MembershipMatrix(clustering, points);
-        System.out.println(mm.toString());
+        
+        // a ultima linha é referente aos dados que nao fazem parte de nenhum grupo
+        // um mesmo dado pode estar em grupos diferentes, por isso o total é maior que a quantidade real
+        System.out.println(mm.toString()); 
 
         int numClasses = mm.getNumClasses();
         if(mm.hasNoiseClass())
             numClasses--;
-
-        System.out.println("Numero de clusters:" +  clustering.size());
 
         //F1 as defined in P3C, try using F1 optimization
         double F1_P = 0.0;
@@ -118,13 +119,16 @@ public class F1 extends MeasureCollection{
 
         //Inverse Purity
         double inverse_purity = 0;
-        int clusters_real = 0;
+        int realClasses = 0; // quantidade de classes que realmente foram agrupadas(classe está presente em algum grupo)
         for (int j = 0; j < numClasses; j++){
             double max_weight = 0;
             int max_weight_index = -1;
+            double class_sum = 0; // quantidade de dados da mesma classe no grupo
 
             //dada a classe, procura qual grupo tem a maior quantidade de dados pertencentes a ela
             for (int i = 0; i < clustering.size(); i++) {
+                class_sum += mm.getClusterClassWeight(i, j);
+
                 if(mm.getClusterClassWeight(i, j) > max_weight){
                     max_weight = mm.getClusterClassWeight(i, j);
                     max_weight_index = i;   
@@ -133,14 +137,14 @@ public class F1 extends MeasureCollection{
 
             //Pelo menos um grupo com dado pertencente à alguma classe
             if(max_weight_index!=-1){
-                double precision = mm.getClusterClassWeight(max_weight_index,j)/(double)mm.getClassSum(j);
+                double precision = mm.getClusterClassWeight(max_weight_index,j)/class_sum;
                 inverse_purity += precision;
-                clusters_real++;
+                realClasses++; 
             }
         }
 
-        if(clusters_real > 0)
-        inverse_purity/=clusters_real;
+        if(realClasses > 0)
+        inverse_purity/=realClasses;
 
         addValue("Inverse Purity",inverse_purity);
     }
